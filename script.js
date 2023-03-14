@@ -11,8 +11,8 @@ function Calcular(){
             area += (intervalo*y);
         }
         //exibe o resultado
-        document.getElementById('resultado').innerHTML = "A área do retangulo: <b>" + area.toFixed(2) + "</b>";
-        document.getElementById('resultado').innerHTML += "<br>A área calculada pela intregral: <b>" + integral.toFixed(2) + "</b>";
+        document.getElementById('resultado').innerHTML = "A área dos retangulos: <b>" + area.toFixed(2) + "</b>";
+        document.getElementById('resultado').innerHTML += "<br>A área calculada pela integral: <b>" + integral.toFixed(2) + "</b>";
         document.getElementById('resultado').innerHTML += "<br>A taxa de erro: <b>" + setError(area).toFixed(2) + "%</b>";
     }else{
         window.alert("Digite um valor no campo para continuar!");
