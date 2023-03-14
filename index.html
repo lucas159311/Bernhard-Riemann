@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Bernhard Riemann</title>
+    <script>
+        function Calcular(){
+            if(verificaValor()){
+                var area = 0;
+                var y = 0;
+                var integral = 21.333333;
+
+                var intervalo = Number.parseFloat(document.getElementById('intervalo').value);
+                for(var i=0; i < 4; i+=intervalo){
+                    console.log("passei "+i+" vezes");
+                    y = i*i;
+                    area += (intervalo*y);
+                }
+                //exibe o resultado
+                document.getElementById('resultado').innerHTML = "A área do retangulo: <b>" + area.toFixed(2) + "</b>";
+                document.getElementById('resultado').innerHTML += "<br>A área calculada pela intregral: <b>" + integral.toFixed(2) + "</b>";
+                document.getElementById('resultado').innerHTML += "<br>A taxa de erro: <b>" + setError(area).toFixed(2) + "%</b>";
+            }else{
+                window.alert("Digite um valor no campo para continuar!");
+            }
+
+        }
+
+        function Limpar(){
+            document.getElementById('resultado').innerHTML = "";
+            document.getElementById('intervalo').value = "";
+        }
+
+        function setError(area){
+            var result = (100-((area/21.333333)*100));
+            if(result < 0){//negativo
+                return result * -1;
+            }else{
+                return result;
+            }
+        }
+
+        function verificaValor(){
+            if(document.getElementById('intervalo').value == ""){
+                return 0;
+            }else{
+                return 1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+              <b>Função X² entre [0,4]</b>
+            </div>
+            <div class="card-body">
+                <p>Digite o intervalo das barras:</p>
+                <input type="number" class="form-control" id="intervalo" placeholder="Digite o intervalo">
+                <div align="center" style="padding-top: 2%;">
+                    <button class="btn btn-primary" onclick="Calcular()">Calcular</button>
+                    <button class="btn btn-danger" onclick="Limpar()">Limpar</button>
+                </div>
+                <div id="resultado" align="center"></div>
+            </div>
+          </div>
+    </div>
+</body>
+</html>
