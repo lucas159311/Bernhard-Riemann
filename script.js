@@ -30,8 +30,8 @@ function Calcular(){
 
 function Limpar(){
     document.getElementById('resultado').innerHTML = "";
-    document.getElementById('limite').value = "";
     document.getElementById('intervalo').value = "";
+    document.getElementById('limite').value = "";
 }
 
 function setError(area,integral){
